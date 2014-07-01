@@ -48,6 +48,10 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
+      slim: {
+        files: ['<%= yeoman.app %>/{,*/}*.slim'],
+        tasks: ['slim:dist']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -58,6 +62,23 @@ module.exports = function (grunt) {
           '.tmp/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      }
+    },
+
+    // slim
+    slim: {
+      dist: {
+        options: {
+          trace: true,
+          pretty: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/views',
+          src: '{,*/}*.slim',
+          dest: '<%= yeoman.app %>/views',
+          ext: '.html'
+        }]
       }
     },
 
