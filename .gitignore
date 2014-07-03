@@ -9,3 +9,4 @@ bower_components
 
 app/**/*.js
 app/views/*.html
+app/views/partials/*.html

@@ -1,4 +1,10 @@
 .panel-container
+  .control-button-container
+    button ng-click="" class="btn btn-default" Left
+    button ng-click="" class="btn btn-default" Up
+    button ng-click="" class="btn btn-default" Down
+    button ng-click="" class="btn btn-default" Right
+
   table
     tr ng-repeat="row in map.panels"
       / td ng-repeat="panel in row track by $index" ng-class='{red_panel: isRed(), blue_panel: panel.isBlue(), white_panel: panel.isWhite()}'
