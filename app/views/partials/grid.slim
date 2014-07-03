@@ -1,7 +1,8 @@
 .panel-container
-  table border='1'
-    tr ng-repeat="row in panels"
-      td ng-repeat="panel in row" style="background-color: {{panel.color}}"
-        | x:{{panel.x}} y: {{panel.y}}
+  table
+    tr ng-repeat="row in map.panels"
+      / td ng-repeat="panel in row track by $index" ng-class='{red_panel: isRed(), blue_panel: panel.isBlue(), white_panel: panel.isWhite()}'
+      td ng-repeat="panel in row track by $index" ng-class="panel.color"
+        | {{panel.role}}
 pre
-  | {{ panels | json }}
+  | {{ units | json }}

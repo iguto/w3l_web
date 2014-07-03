@@ -1,0 +1,32 @@
+$panel_color: #d3d3d3
+
+.panel-container
+  table
+    margin-bottom: 25px
+
+  td
+    border-style: solid
+    border-width: 5px
+    border-color: white
+    width:  100px
+    height: 100px
+    text-align: center
+    background-color: $panel_color
+    margin: 5px
+    box-shadow: 0px 0px 10px #000
+
+    &:hover
+      background-color: darken($panel_color, 20%)
+
+  .red
+    $panel_color: #f66
+    background-color: $panel_color
+    &:hover
+      background-color: darken($panel_color, 10%)
+
+
+  .blue
+    $panel_color: #66f
+    background-color: $panel_color
+    &:hover
+      background-color: darken($panel_color, 10%)

@@ -1,9 +1,8 @@
 'use strict'
 
 angular.module('ngC3lWebApp')
-  .controller 'gameCtrl', ($scope, PanelsFactory) ->
+  .controller 'gameCtrl', ($scope, MapFactory, Unit) ->
 
     $scope.panels = "hoge"
-    $scope.panels = new PanelsFactory()
-
-    # $scope.panels = PanelsSrv.buildEmptyPanels()
+    $scope.map = new MapFactory()
+    $scope.units = new Unit()

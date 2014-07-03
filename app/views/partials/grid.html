@@ -1,10 +1,10 @@
 <div class="panel-container">
-  <table border="1">
-    <tr ng-repeat="row in panels">
-      <td ng-repeat="panel in row" style="background-color: {{panel.color}}">
-        x:{{panel.x}} y: {{panel.y}}
+  <table>
+    <tr ng-repeat="row in map.panels">
+      <td ng-class="panel.color" ng-repeat="panel in row track by $index">
+        {{panel.role}}
       </td>
     </tr>
   </table>
 </div>
-<pre>{{ panels | json }}</pre>
+<pre>{{ units | json }}</pre>

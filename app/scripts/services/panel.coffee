@@ -1,25 +1,45 @@
 'use strict'
 
 angular.module('ngC3lWebApp')
-  # .factory 'Panel', (point) ->
   .factory 'Panel', () ->
-    Panel = (point) ->
+    this.colors = ["red", "blue", "white"]
+    factory = this
+    Panel = (point, role=null) ->
+      panel = this
       this.color = "red"
       this.x = point.x
       this.y = point.y
+      this.role = role
+
+      rand_index = Math.floor(Math.random() * 3)
+      this.color = factory.colors[rand_index]
+
+      return this
 
 angular.module('ngC3lWebApp')
-  .factory 'PanelsFactory', (Panel) ->
+  .factory 'MapFactory', (Panel) ->
     ->
       this.panels = []
-      this.size = 5
+      this.size = 6
+      map = this
 
-      count = 0
-      for y in [0..this.size-1]
-        row = []
-        for x in [0..this.size-1]
-          # this.panels.push({count: count})
-          row.push(new Panel({x: x, y: y}))
-          count += 1
-        this.panels.push row
-      this.panels
+      buildEmptyPanels = ->
+        for y in [0..map.size-1]
+          row = []
+          for x in [0..map.size-1]
+            row.push(new Panel({x: x, y: y}))
+          map.panels.push row
+        map.panels
+
+      setStart = ->
+        rand_index = Math.floor(Math.random() * map.size)
+        map.panels[0][rand_index] = new Panel({x: rand_index, y: 0}, "start")
+      setGoal = ->
+        rand_index = Math.floor(Math.random() * map.size)
+        map.panels[map.size-1][rand_index] = new Panel({x: rand_index, y: map.size-1}, "goal")
+
+      buildEmptyPanels()
+      setStart()
+      setGoal()
+
+      map
