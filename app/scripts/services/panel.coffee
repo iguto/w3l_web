@@ -10,6 +10,7 @@ angular.module('ngC3lWebApp')
       this.x = point.x
       this.y = point.y
       this.role = role
+      this.unit = null
 
       rand_index = Math.floor(Math.random() * 3)
       this.color = factory.colors[rand_index]
@@ -42,4 +43,8 @@ angular.module('ngC3lWebApp')
       setStart()
       setGoal()
 
+      this.mergeUnits = (units) ->
+        for unit in units
+          position = unit.position
+          map.panels[position.y][position.x].unit = unit
       map

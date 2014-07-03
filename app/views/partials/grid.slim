@@ -3,6 +3,7 @@
     tr ng-repeat="row in map.panels"
       / td ng-repeat="panel in row track by $index" ng-class='{red_panel: isRed(), blue_panel: panel.isBlue(), white_panel: panel.isWhite()}'
       td ng-repeat="panel in row track by $index" ng-class="panel.color"
-        | {{panel.role}}
+        | {{panel.role}} <br> {{panel.unit.name}}
+
 pre
   | {{ units | json }}

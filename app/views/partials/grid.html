@@ -2,7 +2,7 @@
   <table>
     <tr ng-repeat="row in map.panels">
       <td ng-class="panel.color" ng-repeat="panel in row track by $index">
-        {{panel.role}}
+        {{panel.role}} <br> {{panel.unit.name}}
       </td>
     </tr>
   </table>
