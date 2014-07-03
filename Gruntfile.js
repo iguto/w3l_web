@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       slim: {
-        files: ['<%= yeoman.app %>/{,*/}*.slim'],
+        files: ['<%= yeoman.app %>/views/{,*/}*.slim'],
         tasks: ['slim:dist']
       },
       livereload: {

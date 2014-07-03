@@ -1,0 +1,7 @@
+.panel-container
+  table border='1'
+    tr ng-repeat="row in panels"
+      td ng-repeat="panel in row" style="background-color: {{panel.color}}"
+        | x:{{panel.x}} y: {{panel.y}}
+pre
+  | {{ panels | json }}
