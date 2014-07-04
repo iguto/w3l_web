@@ -14,7 +14,6 @@ angular.module('ngC3lWebApp')
         $event.preventDefault()
 
       this.right = ($event) ->
-        console.log $event
         player.moveRight()
         $event.preventDefault()
       this
