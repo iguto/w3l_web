@@ -1,9 +1,9 @@
 .panel-container
   .control-button-container
-    button ng-click="" class="btn btn-default" Left
-    button ng-click="" class="btn btn-default" Up
-    button ng-click="" class="btn btn-default" Down
-    button ng-click="" class="btn btn-default" Right
+    button ng-click="player.moveLeft()" class="btn btn-default" Left
+    button ng-click="player.moveUp()" class="btn btn-default" Up
+    button ng-click="player.moveDown()" class="btn btn-default" Down
+    button ng-click="player.moveRight()" class="btn btn-default" Right
 
   table
     tr ng-repeat="row in map.panels"
@@ -12,4 +12,4 @@
         | {{panel.role}} <br> {{panel.unit.name}}
 
 pre
-  | {{ units | json }}
+  | {{ map | json }}

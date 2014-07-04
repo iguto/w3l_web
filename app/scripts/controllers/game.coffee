@@ -5,6 +5,9 @@ angular.module('ngC3lWebApp')
 
     $scope.panels = "hoge"
     $scope.map = new MapFactory()
-    $scope.units = [new Unit()]
+
+    $scope.units = []
+    $scope.player = new Unit
+    $scope.units.push $scope.player
 
     $scope.map.mergeUnits($scope.units)

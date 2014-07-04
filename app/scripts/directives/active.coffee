@@ -1,9 +1,5 @@
 'use strict';
 
-# angular.module('ngC3lWebApp')
-#   .directive 'active', ->
-#     template: 'class="active"'
-
 angular.module('ngC3lWebApp')
   .directive 'activeLink', ($location) =>
     link: (scope, element, attrs) =>
