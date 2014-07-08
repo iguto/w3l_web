@@ -5,6 +5,7 @@ angular.module('ngC3lWebApp')
     scope: '='
     templateUrl: 'views/partials/grid.html'
     link: (scope, element, attrs) ->
-      scope.$watch 'player.position', (newPosition, oldPosition) ->
-        scope.map.panels[oldPosition.y][oldPosition.x].unit = null
-        scope.map.panels[newPosition.y][newPosition.x].unit = scope.player
+      scope.$watch 'player.unit.position', (newPosition, oldPosition) ->
+        if newPosition? and oldPosition?
+          scope.map.at(oldPosition).unit = null
+          scope.map.at(newPosition).unit = scope.player.unit

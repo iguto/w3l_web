@@ -17,7 +17,7 @@ angular.module('ngC3lWebApp')
       return this
 
 angular.module('ngC3lWebApp')
-  .factory 'MapFactory', (Panel) ->
+  .factory 'MapFactory', (Panel, UnitMap) ->
     ->
       @panels = []
       @size = 6
@@ -60,12 +60,16 @@ angular.module('ngC3lWebApp')
         unit_map = @buildEmptyPanels(size*2 + 1)
         min_sub = -1 * size
         max_sub = size
+        unit_map_array = []
         for sub_y in [min_sub..max_sub]
           for sub_x in [min_sub..max_sub]
             x = position.x + sub_x
             y = position.y + sub_y
-            unit_map[y][x] = @at({x: x, y: y})
-        unit_map
+            if x >= 0 and y >= 0
+              unit_map_array.push(@at({x: x, y: y}))
+            else
+              unit_map_array.push(null)
+        new UnitMap(size, unit_map_array)
       #初期化関数
       @init = ->
         @buildPanels()
@@ -76,3 +80,37 @@ angular.module('ngC3lWebApp')
       map = this
       do ->
         map.init()
+
+angular.module('ngC3lWebApp')
+  .factory 'UnitMap', (Panel) ->
+    UnitMap = (size, arr) ->
+      @size = 2*size + 1
+      @panels = []
+
+      @buildEmptyPanels = () ->
+        panels = []
+        for y in [0..@size-1]
+          @panels[y] = []
+          for x in [0..@size-1]
+            @panels[y][x] = new Panel({x: x, y: y})
+
+      # 2次元配列に、1次元配列を入れていく
+      @setPanels = (array) ->
+        index = 0
+        for row in @panels
+          for panel in row
+            position = panel.position
+            @panels[position.y][position.x] = array[index]
+            index += 1
+
+      # 指定したpositionのPanelを返す
+      @at = (position) =>
+        for y in [0..@size-1]
+          for x in [0..@size-1]
+            if @panels[y][x]? and JSON.stringify(@panels[y][x].position) is JSON.stringify(position)
+              return @panels[y][x]
+
+      # init
+      @buildEmptyPanels()
+      @setPanels(arr)
+      this

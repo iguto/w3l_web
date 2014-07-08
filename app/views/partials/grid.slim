@@ -5,7 +5,7 @@
     / button ng-click="player.moveDown()" class="btn btn-default" Down
     / button ng-click="player.moveRight()" class="btn btn-default" Right
 
-    input ui-keydown="{'down': 'key_manager.down($event)', 'up': 'key_manager.up($event)', 'right': 'key_manager.right($event)', 'left': 'key_manager.left($event)' }" placeholder="フォーカスするとカーソルキー操作が有効になります"
+    input ui-keydown="{'down': 'downKey($event)', 'up': 'upKey($event)', 'right': 'rightKey($event)', 'left': 'leftKey($event)' }" placeholder="フォーカスするとカーソルキー操作が有効になります"
 
   table
     tr ng-repeat="row in map.panels"
@@ -14,4 +14,4 @@
         | {{panel.role}} <br> {{panel.unit.name}}
 
 pre
-  | {{ map | json }}
+  | {{ player.unit.position | json }}
