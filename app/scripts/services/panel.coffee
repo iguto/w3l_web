@@ -43,6 +43,16 @@ angular.module('ngC3lWebApp')
       @setGoal = ->
         rand_index = Math.floor(Math.random() * @size)
         @panels[@size-1][rand_index] = new Panel({x: rand_index, y: @size-1}, "goal")
+      # ゴールパネルを返却する
+      @goal = ->
+        for row in @panels
+          for panel in row
+            return panel if panel.role == "goal"
+      # スタートパネルを返却する
+      @start = ->
+        for row in @panels
+          for panel in row
+            return panel if panel.role == "start"
       # Map上にUnitを配置する
       @mergeUnits = (units) ->
         for unit in units

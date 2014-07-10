@@ -1,7 +1,7 @@
 angular.module 'ngC3lWebApp'
   .factory 'PlayerBrain', (Unit) ->
-    PlayerBrain = ->
-      @unit = new Unit()
+    PlayerBrain = (position) ->
+      @unit = new Unit(position)
       @unit_map = null
 
       @setUnitMap = (unit_map) ->

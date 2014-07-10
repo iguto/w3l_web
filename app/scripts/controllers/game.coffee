@@ -5,7 +5,8 @@ angular.module('ngC3lWebApp')
     $scope.map = new MapFactory()
 
     $scope.units = []
-    $scope.player = new PlayerBrain()
+    $scope.goaled = false
+    $scope.player = new PlayerBrain($scope.map.start().position)
     $scope.units.push $scope.player.unit
 
     $scope.map.mergeUnits($scope.units)
@@ -26,6 +27,10 @@ angular.module('ngC3lWebApp')
     $scope.rightKey = ($event)->
       $scope.allKey()
       $scope.key_manager.right($event)
+
+    $scope.$watch 'map.goal().unit', (goaled_unit) ->
+      $scope.goaled = false
+      $scope.goaled = true if goaled_unit?
 
   .factory 'Turn', (KeyboardManager) ->
     Turn = (map,player) ->

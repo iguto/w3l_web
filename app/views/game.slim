@@ -1,4 +1,6 @@
 h1 GameView
 hr
-div#gameArea ng-controller="gameCtrl"
+#gameArea ng-controller="gameCtrl"
+  .alert.alert-success#goaledDisplay ng-show="goaled" ng-hide="!goaled"
+    | ゴールしました。
   #grid grid=''

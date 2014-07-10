@@ -2,9 +2,9 @@
 
 angular.module('ngC3lWebApp')
   .factory 'Unit', ->
-    Unit = ->
+    Unit = (position={x:0, y:0}) ->
       this.name = "unitA"
-      this.position = {x: 0, y: 0}
+      this.position = position
 
       unit = this
 
