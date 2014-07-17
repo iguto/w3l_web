@@ -37,3 +37,49 @@ $panel_color: #d3d3d3
     margin: 5px
   input
     width: 320px
+
+#chipArea
+  div
+    width: 100px
+    height: 100px
+    background-color: red
+    margin: 10px
+    /* float: left
+    /* text-align: center
+
+#AIArea
+  td
+    width: 50px
+    height: 50px
+
+/**** 吹き出し
+$allow_box_back_color: #aaa
+$allow_box_border_color: #00a
+$allow_box_border_width: 10px
+.arrow_box
+  position: relative
+  background: $allow_box_back_color
+  border: 4px solid $allow_box_border_color
+  margin-bottom: 15px
+
+.arrow_box:after, .arrow_box:before
+  top: 100%
+  left: 50%
+  border: solid transparent
+  content: " "
+  height: 0
+  width: 0
+  position: absolute
+  pointer-events: none
+
+.arrow_box:after
+  border-color: rgba(136, 183, 213, 0)
+  border-top-color: $allow_box_back_color
+  border-width: $allow_box_border_width
+  margin-left: $allow_box_border_width * -1
+
+.arrow_box:before
+  border-color: rgba(194, 225, 245, 0)
+  border-top-color: $allow_box_border_color
+  border-width: $allow_box_border_width + 6
+  margin-left: ($allow_box_border_width + 6) * -1

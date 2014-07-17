@@ -1,0 +1,7 @@
+.arrow_box ng-show='is_chip_menu_visible'
+  | all avairable chip list will be here
+table border='1' align='center'
+  tr ng-repeat="chip_row in ai_chips.chips track by $index"
+    td ng-repeat="chip in chip_row track by $index" data-position="{{'' + chip.y +',' + chip.x}}"
+pre
+  | {{ is_chip_menu_visible }}

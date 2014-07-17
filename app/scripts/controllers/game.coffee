@@ -1,13 +1,15 @@
 'use strict'
 
 angular.module('ngC3lWebApp')
-  .controller 'gameCtrl', ($scope, MapFactory, Unit, KeyboardManager, PlayerBrain, Turn) ->
+  .controller 'gameCtrl', ($scope, MapFactory, Unit, KeyboardManager, PlayerBrain, Turn, Chips) ->
+
     $scope.map = new MapFactory()
 
     $scope.units = []
     $scope.goaled = false
     $scope.player = new PlayerBrain($scope.map.start().position)
     $scope.units.push $scope.player.unit
+    $scope.chips = new Chips()
 
     $scope.map.mergeUnits($scope.units)
 
